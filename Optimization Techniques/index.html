@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hungarian Algorithm Solver</title>
+</head>
+<body>
+    <h1>Hungarian Algorithm Solver</h1>
+    <form method="post">
+        <p>Enter the cost matrix (separated by spaces or newlines):</p>
+        <textarea name="cost_matrix" rows="4" cols="50">{{ request.form.cost_matrix }}</textarea><br><br>
+        <input type="submit" value="Solve">
+    </form>
+
+    {% if assignment %}
+        <h2>Optimal Assignment:</h2>
+        {% for row, col in assignment %}
+            <p>Row {{ row + 1 }} -> Column {{ col + 1 }}</p>
+        {% endfor %}
+        <p>Total Cost: {{ total_cost }}</p>
+    {% endif %}
+</body>
+</html>
